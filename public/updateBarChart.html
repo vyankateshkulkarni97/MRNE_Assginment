@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Include other dependencies and stylesheets for your project -->
+    <title>Your Charts Example</title>
+</head>
+<body>
+    <!-- Your HTML content, including containers for the charts -->
+
+    <script>
+        // Assume you have initialized barChart and pieChart instances somewhere in your code
+        const barChart = new Chart(document.getElementById('barChart'), {
+            type: 'bar',
+            // Add your chart configuration here
+        });
+
+        const pieChart = new Chart(document.getElementById('pieChart'), {
+            type: 'pie',
+            // Add your chart configuration here
+        });
+
+        // Function to update bar chart with the provided data
+        function updateBarChart(barChartData) {
+            barChart.data.labels = barChartData.labels;
+            barChart.data.datasets[0].data = barChartData.data;
+            barChart.update();
+        }
+
+        // Function to update pie chart with the provided data
+        function updatePieChart(pieChartData) {
+            pieChart.data.labels = pieChartData.labels;
+            pieChart.data.datasets[0].data = pieChartData.data;
+            pieChart.update();
+        }
+
+        // Call your API to get data and update charts as needed
+        // For example:
+        const barChartData = {
+            labels: ['Label1', 'Label2', 'Label3'],
+            data: [10, 20, 30],
+        };
+
+        const pieChartData = {
+            labels: ['Category A', 'Category B', 'Category C'],
+            data: [15, 25, 10],
+        };
+
+        updateBarChart(barChartData);
+        updatePieChart(pieChartData);
+    </script>
+</body>
+</html>
